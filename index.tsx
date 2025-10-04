@@ -87,8 +87,8 @@ function blobToBase64(blob: Blob): Promise<string> {
 async function urlToBase64(url: string): Promise<{base64: string; mimeType: string}> {
   // Use a CORS proxy to prevent cross-origin issues.
   // Note: Using a public proxy is not recommended for production.
-  const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-  const response = await fetch(proxyUrl + url);
+  const proxyUrl = 'https://corsproxy.io/?';
+  const response = await fetch(proxyUrl + encodeURIComponent(url));
   if (!response.ok) {
     throw new Error(`Failed to fetch image: ${response.statusText}`);
   }
@@ -96,6 +96,7 @@ async function urlToBase64(url: string): Promise<{base64: string; mimeType: stri
   const base64 = await blobToBase64(blob);
   return {base64, mimeType: blob.type};
 }
+
 
 /** Updates the enabled/disabled state of the generate button */
 function updateGenerateButtonState() {
