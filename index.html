@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nano Banana Image Fusion</title>
+    <link rel="stylesheet" href="index.css" />
+    <script
+      src="https://kit.fontawesome.com/9423b38699.js"
+      crossorigin="anonymous"
+    ></script>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.22.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <nav class="app-nav">
+      <h1><i class="fa-solid fa-lightbulb"></i> Nano Banana Image Fusion</h1>
+    </nav>
+    <main>
+      <section id="hero">
+        <h2>Fuse Your Images with AI</h2>
+        <p>
+          Upload a base image and select an artistic concept to generate a
+          unique new creation with Gemini.
+        </p>
+      </section>
+
+      <div class="content-wrapper">
+        <div class="input-panel">
+          <section id="step1-upload" class="card">
+            <h3>1. Upload Your Image</h3>
+            <div id="upload-area">
+              <input type="file" id="file-input" accept="image/*" hidden />
+              <div id="upload-placeholder">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+                <p>Drop image here or click to upload</p>
+                <span>PNG, JPG, WEBP accepted</span>
+              </div>
+              <img
+                id="preview-image"
+                src="#"
+                alt="Your uploaded image"
+                class="hidden"
+              />
+            </div>
+            <button id="clear-upload-btn" class="hidden secondary-btn">
+              <i class="fa-solid fa-xmark"></i> Clear Image
+            </button>
+          </section>
+
+          <section id="step2-reference" class="card">
+            <h3>2. Select a Reference Concept</h3>
+            <div id="reference-grid">
+              <!-- Reference images will be populated by JS -->
+            </div>
+          </section>
+        </div>
+
+        <div class="output-panel">
+          <section id="step3-result" class="card">
+            <h3>Result</h3>
+            <div id="result-container">
+              <div id="result-placeholder">
+                <i class="fa-solid fa-image"></i>
+                <p>Your generated image will appear here.</p>
+              </div>
+              <div id="loader" class="hidden">
+                <div class="spinner"></div>
+                <p>Generating your masterpiece...</p>
+              </div>
+              <img
+                id="result-image"
+                src="#"
+                alt="Generated image"
+                class="hidden"
+              />
+            </div>
+            <div class="result-actions">
+              <button id="generate-btn" disabled>
+                <i class="fa-solid fa-wand-magic-sparkles"></i> Generate
+              </button>
+              <button id="download-btn" class="hidden secondary-btn">
+                <i class="fa-solid fa-download"></i> Download
+              </button>
+            </div>
+            <p id="error-message" class="hidden"></p>
+          </section>
+        </div>
+      </div>
+    </main>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

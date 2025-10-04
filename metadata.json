@@ -1,0 +1,6 @@
+{
+  "name": "Copy of Nano Banana Image Fusion",
+  "description": "Fuse two images together using the Gemini 2.5 Flash Image model. Upload a base image and select a style concept to generate a unique artistic creation.",
+  "requestFramePermissions": [],
+  "prompt": ""
+}
